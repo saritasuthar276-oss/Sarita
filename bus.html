@@ -1,0 +1,898 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>E-Booking</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+
+
+
+<style>
+    body{
+    background:#fff;
+    padding-top:90px;   /* navbar height ke barabar */
+}
+:root{
+
+    --primary:#ff385c;
+    --dark:#111;
+    --text-main:#222;
+}
+
+
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    background:#fff;
+}
+
+/* NAVBAR */
+nav{
+    position:fixed;
+    top:0;
+    width:100%;
+    padding:15px 5%;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    background: rgba(255,255,255,0.85);
+    backdrop-filter:blur(12px);
+    border-bottom:1px solid rgba(0,0,0,0.08);
+    z-index:1000;
+}
+
+/* Logo */
+.logo{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-size:24px;
+    font-weight:800;
+    color:var(--primary);
+    text-decoration:none;
+}
+.logo i{
+    font-size:30px;
+}
+
+/* Menu */
+nav ul{
+    display:flex;
+    list-style:none;
+    gap:30px;
+    margin: 0;
+}
+nav ul li a{
+    text-decoration:none;
+    color:#222;
+    font-weight:500;
+    position:relative;
+}
+nav ul li a::after{
+    content:'';
+    position:absolute;
+    width:0;
+    height:2px;
+    left:0;
+    bottom:-6px;
+    background:var(--primary);
+    transition:.3s;
+}
+nav ul li a:hover{
+    color:var(--primary);
+}
+nav ul li a:hover::after{
+    width:100%;
+}
+
+/* Buttons */
+.nav-buttons{
+    display:flex;
+    gap:15px;
+    align-items:center;
+}
+.btn-login{
+    background:var(--dark);
+    color:#fff;
+    padding:10px 26px;
+    border-radius:30px;
+    text-decoration:none;
+    font-weight:600;
+}
+.btn-login:hover{
+    background:var(--primary);
+}
+
+/* HERO */
+.hero{
+
+   position: relative;
+   height:520px;
+    background:linear-gradient(rgba(0,0,0,.5),rgba(0,0,0,.5)),
+    url("https://images.unsplash.com/photo-1544620347-c4fd4a3d5957");
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-size:cover;
+    padding-top: 20px;
+    background-position:center;
+    color:white;
+}
+
+.hero h2{
+    font-size:65px;
+    color:#fff;
+    
+}
+
+
+
+
+/* Search Bar */
+.search-bar{
+    padding:15px;
+    margin-top: 25px;
+    border-radius:8px;
+    display:flex;
+    align-items:center;
+    gap:10px;
+    max-width :1000px;
+    width:100%;
+    margin-left:auto;
+    margin-right:auto;
+    box-shadow:0 20px 50px rgba(0,0,0,.2);
+    
+}
+
+
+/* SEARCH BOX*/
+.search-box {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0px 10px 30px rgba(0,0,0,0.1);
+            margin-top: -50px;
+            color: #333;
+        }
+.btn-search{ 
+    background-color: #d84e55; 
+    color: white; 
+    border: none; 
+    width: 100%;
+ }
+ .btn-search:hover {
+     background-color: red; 
+     color: white; 
+    }
+
+    
+/* Search box on top of hero */
+.search-panel {
+    position: absolute;
+    bottom: -25px;        /* hero ke neeche thoda overlap */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    max-width: 1000px;
+    z-index: 10;          /* hero ke upar */
+}
+
+.search-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 25px;
+}
+
+
+/* Government Bus Section */
+
+.govt-bus-section {
+    background-color: #f8f9fa;
+    padding: 40px 15px;
+}
+.bus-card{
+    position: relative;
+    padding: 25px 15px ;
+    height: 260px;
+    border-radius: 18px;
+    overflow: hidden;
+    background: #fff;
+    text-align: center;   
+    box-shadow:  0 5px 15px rgba(0,0,0,0.12);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid #eee;
+}
+
+/* Hover Effect */
+.bus-card:hover {
+    transform: translateY(-10px);
+    box-shadow:  0 18px 40px rgba(0,0,0,0.18); ;
+}
+
+/* Logo */
+.bus-card img {
+    /*max-width: 70%;
+    height: auto;
+    margin-bottom: 15px;*/
+     width: 150px;
+    height: 150px;
+    object-fit: cover;
+   
+    
+    
+}
+.bus-text{
+    /*position:relative;
+    width:100%;
+    text-align:center;
+    padding:10px 5px;
+    color:black;*/
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    left: 0;
+    padding: 12px 10px;
+    /*background: rgba(255, 255, 255, 0.25);*/
+   
+    
+   backdrop-filter: blur(5px);
+        
+    backdrop-filter: blur(6px);
+
+    color: #111;
+    border-bottom-left-radius: 18px;
+    border-bottom-right-radius: 18px;
+    /*color: #fff;*/
+     text-align: center;
+
+}
+
+/* Title */
+.bus-text h6 {
+        margin:0;
+        font-weight: 700;
+    font-size: 17px;
+     letter-spacing:0.5px;
+    
+}
+
+/* Text */
+.bus-text p {
+    font-size: 13px;
+      opacity: 0.9;
+    margin:2px ;
+}
+
+
+
+
+
+
+    /*section -title*/
+    .section-title {
+            color:black;
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 30px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid var(--primary-color);
+            display: inline-block;
+            
+        }
+
+        /*features*/
+        .features {
+            background-color: whitesmoke;
+            padding: 60px 0;
+        }
+
+        .feature-box {
+            text-align: center;
+            padding: 30px;
+            background-color: var(--card-bg);
+            border-radius: 10px;
+            margin-bottom: 20px;
+            transition: transform 0.3s;
+        }
+
+        .feature-box:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+
+
+
+
+
+
+        .route-card .card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 12px; /* thoda smooth edges */
+    overflow: hidden;
+}
+
+.route-card .card:hover {
+    transform: translateY(-10px); /* thoda upar uthta hai */
+    box-shadow: 0 20px 40px rgba(0,0,0,0.25); /* shadow strong ho jaye */
+}
+
+.route-card .card img {
+    transition: transform 0.3s ease;
+}
+
+.route-card .card:hover img {
+    transform: scale(1.05); /* image thoda zoom ho jaye */
+}
+
+
+
+/* FOOTER */
+footer{
+    background:rgba(255,255,255,0.9);
+    color:#222;
+    padding:60px 5% 30px;
+    border-top:1px solid rgba(0,0,0,0.08);
+}
+
+.footer-logo{
+    font-size:24px;
+    font-weight:800;
+    color:var(--primary);   /* same red as navbar */
+    text-decoration:none;
+}
+
+
+.footer p{
+    color:#555;
+    font-size:18px;
+    margin-top:15px;
+    line-height:1.7;
+}
+
+.footer h4{
+    font-size:22px;
+    margin-bottom:20px;
+    color:#111;
+}
+
+.footer ul{
+    list-style:none;
+    padding:0;
+}
+
+.footer ul li{
+    margin-bottom:12px;
+}
+
+.footer ul li a{
+    color:#555;
+    text-decoration:none;
+    font-size:14px;
+    transition:.3s;
+}
+
+.footer ul li a:hover{
+    color:var(--primary);
+    padding-left:5px;
+}
+
+.footer-bottom{
+    border-top:1px solid rgba(0,0,0,0.08);
+    margin-top:40px;
+    padding-top:20px;
+    text-align:center;
+    font-size:13px;
+    color:#666;
+}
+
+</style>
+
+</head>
+
+<body>
+
+
+    <!--top nav bar start-->
+    <nav>
+        <a href="#" class="logo">
+            <i class="fa-brands fa-airbnb"></i>
+                 E-Booking
+        </a>
+                <!--link the pages start-->
+        <ul>
+            <li>
+                <a href="index.html">
+                    <i class="bi bi-airplane"></i>
+                         Flights
+                </a>
+            </li>
+            <li>
+                <a href="train.html">
+                    <i class="bi bi-train-front"></i> 
+                        Trains
+                </a>
+            </li>
+            <li>
+                <a href="bus.html">
+                    <i class="bi bi-bus-front"></i>
+                         Bus
+                </a>
+            </li>
+            <li>
+                <a href="cabs.html">
+                    <i class="bi bi-taxi-front"></i> 
+                        Cabs
+                </a>
+            </li>
+            <li>
+                <a href="movie.html">
+                    <i class="bi bi-ticket-perforated"></i> 
+                      Movies
+                </a>
+            </li>
+             <li>
+                <a href="restaurant.html">
+                    <i class="bi bi-cup-hot | table"></i> 
+                      Restaurants
+                </a>
+            </li>
+        </ul>
+                <!--link the pages end -->
+        
+        <!--button start -->
+         <div class="nav-buttons">
+            <a href="sign up.html" class="btn btn-outline-danger rounded-pill">
+                Sign In
+            </a>
+        </div>
+        <!--button end-->
+    </nav>
+    <!--top navbar end --> 
+
+      
+   <!--jombotron image wala box start-->
+    <div class="hero">
+        <h2>
+            <b>
+               India's Largest Bus Ticket Booking Platform
+            </b>
+        </h2>
+
+        
+<!-- ================= SEARCH ================= -->
+<section class="container search-panel">
+<div class="card shadow-lg p-4">
+<form class="row g-3">
+<div class="col-md-3">
+<label>From</label>
+<input type="text" class="form-control" placeholder="Enter City">
+</div>
+<div class="col-md-3">
+<label>To</label>
+<input type="text" class="form-control" placeholder="Enter City">
+</div>
+<div class="col-md-3">
+<label>Date</label>
+<input type="date" class="form-control">
+</div>
+<div class="col-md-3 d-grid">
+<label class="invisible">Search</label>
+<button class="btn btn-danger btn-lg">Search Buses</button>
+</div>
+</form>
+</div>
+</section>
+
+       
+
+
+
+
+        
+    </div>
+    </div>
+        <!--jombotron image wala box end-->
+
+
+
+        <!--goverment bus start-->
+        <section class="container my-5 govt-bus-section">
+            <h2 class="fw-bold text-center mb-4">
+                Goverment Buses
+            </h2>
+
+            <!--rows start-->
+                <div class="row g-4">
+                    <!--1st start-->
+                        <div class="col-md-3">
+                            <div class="bus-card">
+                                <img src="image/RSRTC.jpg"
+                                     
+                                     alt="Rajasthan bus"/>
+                                     
+                                <!--text on image start-->
+                                <div class="bus-text">
+                                    <h6>
+                                        RSRTC
+                                    </h6>
+                                    <p>
+                                        Rajasthan Roadways
+                                    </p>
+                                </div>
+                                <!--text on image end-->
+
+                            </div>
+                        </div>
+                    <!--1 st end-->
+
+                    
+                    <!--2nd start-->
+                        <div class="col-md-3">
+                            <div class="bus-card">
+                                <img src="image/MSRTC.jpg"
+                                     height="150"
+                                     width="200"
+                                     alt="Maharashtra bus"/>
+                                     
+                                <!--text on image start-->
+                                <div class="bus-text">
+                                    <h6>
+                                        MSRTC
+                                    </h6>
+                                    <p>
+                                       Maharashtra Roadways
+                                    </p>
+                                </div>
+                                <!--text on image end-->
+
+                            </div>
+                        </div>
+                    <!--2 nd end-->
+
+                    
+                    <!--3rd start-->
+                        <div class="col-md-3">
+                            <div class="bus-card">
+                                <img src="image/GSRTC.jpg"
+                                     height="150"
+
+                                     alt="Andhra Pradesh bus"/>
+                                     
+                                <!--text on image start-->
+                                <div class="bus-text">
+                                    <h6>
+                                        GSRTC
+                                    </h6>
+                                    <p>
+                                        Gujarat Roadways
+                                    </p>
+                                </div>
+                                <!--text on image end-->
+
+                            </div>
+                        </div>
+                    <!--3 rd end-->
+
+
+                    
+                    <!--4th start-->
+                        <div class="col-md-3">
+                            <div class="bus-card">
+                                <img src="image/APSRTC.jpg"
+                                     height="150"
+                                     alt="Gujarat bus"/>
+                                     
+                                <!--text on image start-->
+                                <div class="bus-text">
+                                    <h6>
+                                        APSRTC
+                                    </h6>
+                                    <p>
+                                        Karnataka Roadways
+                                    </p>
+                                </div>
+                                <!--text on image end-->
+
+                            </div>
+                        </div>
+                    <!--4th end-->
+
+
+
+                    
+                    <!--5th  start-->
+                        <div class="col-md-3">
+                            <div class="bus-card">
+                                <img src="image/KSRTC.jpg"
+                                     height="150"
+                                     alt="Telengana bus"/>
+                                     
+                                <!--text on image start-->
+                                <div class="bus-text">
+                                    <h6>
+                                        TSRTC
+                                    </h6>
+                                    <p>
+                                        Telangana Roadways
+                                    </p>
+                                </div>
+                                <!--text on image end-->
+
+                            </div>
+                        </div>
+                    <!--5th end-->
+
+
+                    
+                    <!--6th start-->
+                        <div class="col-md-3">
+                            <div class="bus-card">
+                                <img src="image/HPRTC.jpg"
+                                     height="150"
+                                     alt="Rajasthan bus"/>
+                                     
+                                <!--text on image start-->
+                                <div class="bus-text">
+                                    <h6>
+                                        HPRTC
+                                    </h6>
+                                    <p>
+                                        Himachal Pradesh Roadways
+                                    </p>
+                                </div>
+                                <!--text on image end-->
+
+                            </div>
+                        </div>
+                    <!--6 st end-->
+           </div>
+            <!--rows end-->
+        </section>
+        <!--goverment bus end -->
+
+
+
+
+        
+
+
+
+ <!-- Features Section start -->
+    <section id="features" class="features mt-3">
+        <!--container start-->
+        <div class="container">
+            <!--section title-->
+            <h2 class="section-title ">
+                Why Choose Us
+            </h2>
+
+            <!--row start-->
+            <div class="row mt-4">
+                <!--1st start-->
+                <div class="col-md-4">
+                    <!--feature box start-->
+                    <div class="feature-box">
+                        <!--icon-->
+                        <div class="feature-icon">
+                           🛡️
+                        </div>
+                        <!--icon end-->
+                        <h4>
+                           Safe Travels
+                        </h4>
+                        <p>
+                            Verified operators and safety-first 
+                            protocols for every journey.
+                        </p>
+                    </div>
+                    <!--feature box end-->
+                </div>
+                <!--1st end-->
+
+                <!--2nd start-->
+                <div class="col-md-4">
+                    <!--feature box start-->
+                    <div class="feature-box">
+                        <!--icon start-->
+                        <div class="feature-icon">
+                             🚌
+                        </div>
+                        <!--icon end-->
+                        <h4>
+                           Government & Private Buses
+                        </h4>
+                        <p>
+                           Book verified government and trusted private 
+                        bus operators across India.
+                        </p>
+                    </div>
+                    <!--feature box end-->
+                </div>
+                <!--2nd end-->
+
+                <!--3rd start-->
+                <div class="col-md-4">
+                    <!--featutre box start-->
+                    <div class="feature-box">
+                        <!--icon start-->
+                        <div class="feature-icon">
+                            💰
+                        </div>
+                        <!--icon end-->
+                        <h4>
+                           Best Price Guarantee
+                        </h4>
+                        <p>
+                             Get the most affordable fares with 
+                        great offers on every trip.
+                        </p>
+                    </div>
+                    <!--feature end-->
+                </div>
+                <!--3rd end-->
+            </div>
+            <!--row end-->
+        </div>
+        <!--container end -->
+    </section>
+    <!-- Features Section end -->
+
+
+
+
+
+    
+<!-- ================= POPULAR ROUTES ================= -->
+<section class="container my-5">
+<h2 class="fw-bold mb-4">Popular Bus Routes</h2>
+<div class="row g-4">
+<div class="col-md-4 route-card">
+<div class="card shadow">
+<img src="https://images.unsplash.com/photo-1529070538774-1843cb3265df" class="card-img-top">
+<div class="card-body">
+<h5>Delhi → Jaipur</h5>
+<button class="btn btn-outline-danger w-100">Book Now</button>
+</div>
+</div>
+</div>
+<div class="col-md-4 route-card">
+<div class="card shadow">
+<img src="https://images.unsplash.com/photo-1570125909232-eb263c188f7e" class="card-img-top">
+<div class="card-body">
+<h5>Mumbai → Pune</h5>
+<button class="btn btn-outline-danger w-100">Book Now</button>
+</div>
+</div>
+</div>
+<div class="col-md-4 route-card">
+<div class="card shadow">
+<img src="https://images.unsplash.com/photo-1601584115197-04ecc0da31d7" class="card-img-top">
+<div class="card-body">
+<h5>Lucknow → Agra</h5>
+<button class="btn btn-outline-danger w-100">Book Now</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+
+
+
+
+
+
+    <!--footer start-->
+    
+        <footer class="footer ">
+            <div class="row ">
+                <!--ebooking information -->
+                <div class="col-md-4 mb-4">
+                    <a href="#" class="footer-logo">
+                        E-Booking
+                    </a>
+                    <p>
+                        E-Booking is your ultimate partner for booking Flights, Hotels
+                        ,Trains and Cabs worldwide with ease and comfort. 
+                    </p>
+                </div>
+                <!--ebooking information -->
+
+                <div class="col-md-2 mb-4">
+                    <h4>Explore</h4>
+                        <ul>
+                            <li>
+                                <a href="#">
+                                    About Us
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    Offers & Deals
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    Contact Us
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    Mobile App
+                                </a>
+                            </li>
+                        </ul>
+                </div>
+                <div class="col-md-2 mb-4">
+                    <h4>Support</h4>
+                        <ul>
+                            <li>
+                                <a href="#">
+                                    Customer Help
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    Booking Status
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    Cancellation
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    Privacy Policy
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="col-md-4 mb-4">
+                        <h4>Contact</h4>
+                        <ul>
+                        <li>
+                            <a href="#">
+                                <i class="bi bi-envelope"></i>
+                                     support@ebooking.com
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="bi bi-telephone"></i> 
+                                    +91 78945 23156
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                 © 2026 E-Booking. All rights reserved.
+            </div>
+        </footer>
+    <!--Footer end -->
+
+
+</body>
+</html>
+
+        
