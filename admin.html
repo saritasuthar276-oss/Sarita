@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Admin Dashboard - eBooking</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-dark bg-dark px-3">
+    <a class="navbar-brand" href="#">eBooking - Admin</a>
+    <span class="text-white">Welcome, Admin</span>
+</nav>
+
+<div class="container-fluid">
+    <div class="row">
+
+        <!-- Sidebar -->
+        <div class="col-md-2 bg-secondary text-white p-3 min-vh-100">
+            <h5>Admin Panel</h5>
+            <a class="d-block text-white text-decoration-none py-2" href="#">Dashboard</a>
+            <a class="d-block text-white text-decoration-none py-2" href="flight.html">Flights</a>
+            <a class="d-block text-white text-decoration-none py-2" href="train.html">Trains</a>
+            <a class="d-block text-white text-decoration-none py-2" href="buse.html">Buses</a>
+            <a class="d-block text-white text-decoration-none py-2" href="cab.html">Cabs</a>
+            <a class="d-block text-white text-decoration-none py-2" href="restaurant.html">Restaurants</a>
+            <a class="d-block text-white text-decoration-none py-2" href="movie.html">Movies</a>
+           
+        </div>
+
+        <!-- Main Content -->
+        <div class="col-md-10 p-4">
+
+            <h3>Admin Dashboard</h3>
+
+            <!-- Summary Cards -->
+            <div class="row g-3 mt-3">
+                <div class="col-md-3">
+                    <div class="card text-center p-3 shadow">
+                        <h5>Total Users</h5>
+                        <h3>12,540</h3>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="card text-center p-3 shadow">
+                        <h5>Total Bookings</h5>
+                        <h3>8,210</h3>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="card text-center p-3 shadow">
+                        <h5>Total Revenue</h5>
+                        <h3>₹9.5L</h3>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="card text-center p-3 shadow">
+                        <h5>Active Services</h5>
+                        <h3>6</h3>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Booking Table -->
+            <div class="card shadow mt-4">
+                <div class="card-header bg-primary text-white">
+                    Recent Bookings
+                </div>
+                <div class="card-body">
+                    <table class="table table-striped">
+                        <tr>
+                            <th>ID</th>
+                            <th>User</th>
+                            <th>Service</th>
+                            <th>Date</th>
+                            <th>Status</th>
+                        </tr>
+                        <tr>
+                            <td>101</td>
+                            <td>Rahul</td>
+                            <td>Flight</td>
+                            <td>12-Feb</td>
+                            <td>Confirmed</td>
+                        </tr>
+                        <tr>
+                            <td>102</td>
+                            <td>Anjali</td>
+                            <td>Movie</td>
+                            <td>13-Feb</td>
+                            <td>Booked</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
